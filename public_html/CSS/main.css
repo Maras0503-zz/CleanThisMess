@@ -1,0 +1,357 @@
+.caseType {
+  position: relative;
+  font-weight: bold;
+  font-size: large;
+  width: 47%;
+  left: 1%;
+  height: 60px;
+  margin: 1%; }
+  @media (max-width: 768px) {
+    .caseType {
+      left: 0%;
+      width: 47%;
+      height: 60px; } }
+  .caseType.ip {
+    background-color: cornflowerblue; }
+  .caseType.gs {
+    background-color: darkviolet; }
+  .caseType.iPad {
+    background-color: indianred; }
+  .caseType.iPadSmart {
+    background-color: lightgreen; }
+  .caseType.disabled {
+    display: none; }
+
+.caseTypeOne {
+  position: relative;
+  font-weight: bold;
+  font-size: large;
+  width: 47%;
+  left: 1%;
+  height: 60px;
+  margin: 1%; }
+  @media (max-width: 768px) {
+    .caseTypeOne {
+      left: 0%;
+      width: 47%;
+      height: 60px; } }
+  .caseTypeOne.ip {
+    background-color: cornflowerblue; }
+  .caseTypeOne.gs {
+    background-color: darkviolet; }
+  .caseTypeOne.iPad {
+    background-color: indianred; }
+  .caseTypeOne.iPadSmart {
+    background-color: lightgreen; }
+  .caseTypeOne.disabled {
+    display: none; }
+
+.caseType:active {
+  background-color: gray; }
+
+.caseTypeOne:active {
+  background-color: gray; }
+
+.buttonsTable {
+  z-index: 1;
+  position: relative;
+  left: 25%;
+  width: 50%; }
+  @media (max-width: 768px) {
+    .buttonsTable {
+      left: 0%;
+      width: 85%;
+      height: 60px; } }
+
+#glossOrMatt {
+  position: fixed;
+  z-index: 2;
+  background-color: gray;
+  width: 40%;
+  height: 30%;
+  left: 30%;
+  top: 35%; }
+  @media (max-width: 768px) {
+    #glossOrMatt {
+      left: 10%;
+      top: 30%;
+      width: 80%;
+      height: 40%; } }
+
+.finishType {
+  width: 100%;
+  height: 50%;
+  border: 5px solid gray;
+  font-weight: bold;
+  font-size: x-large; }
+  .finishType#gloss {
+    background-color: lawngreen; }
+  .finishType#matt {
+    background-color: darkslateblue; }
+
+#matt:active {
+  background-color: gray; }
+
+#gloss:active {
+  background-color: gray; }
+
+#defectSelect {
+  position: fixed;
+  z-index: 3;
+  background-color: red;
+  width: 40%;
+  height: 30%;
+  left: 30%;
+  top: 15%; }
+  @media (max-width: 768px) {
+    #defectSelect {
+      left: 10%;
+      top: 20%;
+      width: 80%;
+      height: 40%; } }
+
+.defectType {
+  width: 100%;
+  border: 3px solid red;
+  background-color: burlywood;
+  height: 25%;
+  font-size: large;
+  font-weight: bold; }
+  @media (max-width: 768px) {
+    .defectType {
+      width: 100%;
+      border: 3px solid red;
+      height: 20%; } }
+
+.defectType:active {
+  background-color: gray; }
+
+.active {
+  background-color: darkblue;
+  color: yellow; }
+
+.qty {
+  position: fixed;
+  right: 0px;
+  width: 50px;
+  height: 100%; }
+
+.qtyBtt {
+  width: 100%;
+  height: 10%;
+  margin-top: 5%;
+  font-weight: bold; }
+
+#menuTrigger {
+  position: fixed;
+  display: none; }
+  @media (max-width: 768px) {
+    #menuTrigger {
+      text-align: center;
+      cursor: pointer;
+      z-index: 10;
+      display: block;
+      top: 10%;
+      width: 20px;
+      height: 80px;
+      background-color: gray;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px; } }
+
+#menu {
+  z-index: 10;
+  position: fixed;
+  top: 0px;
+  height: 100%;
+  width: 15%;
+  background-color: lightgray;
+  padding-top: 10%;
+  border-right: 1px solid black; }
+  @media (max-width: 768px) {
+    #menu {
+      width: 50%; } }
+
+@media (max-width: 768px) {
+  .menuShow {
+    left: 0%; } }
+
+.menuHide {
+  left: 0%; }
+  @media (max-width: 768px) {
+    .menuHide {
+      left: -50%; } }
+
+@media (max-width: 768px) {
+  .triggerClicked {
+    left: 50%; } }
+
+@media (max-width: 768px) {
+  .triggerUnclicked {
+    left: 0%; } }
+
+.menuPos {
+  width: 100%;
+  height: 20px;
+  font-size: large;
+  text-align: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+  cursor: pointer; }
+
+#tableDiv {
+  position: absolute;
+  background-color: #f0efef;
+  z-index: 9;
+  width: 85%;
+  left: 15%;
+  height: 100%; }
+  @media (max-width: 768px) {
+    #tableDiv {
+      width: 100%;
+      height: 100%;
+      left: 0%; } }
+
+#historyTableDiv {
+  position: absolute;
+  background-color: #f0efef;
+  z-index: 9;
+  width: 85%;
+  left: 15%;
+  height: 100%; }
+  @media (max-width: 768px) {
+    #historyTableDiv {
+      width: 100%;
+      height: 100%;
+      left: 0%; } }
+
+#prodTable {
+  background-color: #f0efef; }
+
+#myConfirmContainer {
+  position: fixed;
+  z-index: 15;
+  top: 0;
+  width: 100%;
+  height: 100%; }
+
+#myConfirmMessage {
+  margin-top: 40px;
+  opacity: 1;
+  width: 100%;
+  font-size: x-large;
+  text-align: center; }
+
+#myConfirmConfirm {
+  width: 100px;
+  position: fixed;
+  left: 50%;
+  margin-left: -130px;
+  text-align: center;
+  margin-top: 15px; }
+
+#myConfirmAbort {
+  width: 100px;
+  position: fixed;
+  left: 50%;
+  margin-left: 30px;
+  text-align: center;
+  margin-top: 15px; }
+
+#myConfirmBackground {
+  position: absolute;
+  width: 100%;
+  background-color: gray;
+  top: 50%;
+  height: 200px;
+  margin-top: -100px; }
+
+#myConfirm {
+  position: absolute;
+  z-index: 15;
+  width: 100%;
+  color: black;
+  top: 50%;
+  height: 200px;
+  margin-top: -100px; }
+
+#cancelAdd {
+  z-index: 6;
+  position: fixed;
+  width: 80px;
+  text-align: center;
+  cursor: pointer;
+  left: 50%;
+  margin-left: -40px;
+  height: 25px;
+  background-color: red;
+  font-weight: bold;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px; }
+  @media (max-width: 768px) {
+    #cancelAdd {
+      margin-left: -14%; } }
+
+.login_mini {
+  width: 30%; }
+  @media screen and (max-width: 480px) and (orientation: portrait) {
+    .login_mini {
+      width: 90%; } }
+  @media screen and (max-width: 1000px) and (orientation: landscape) {
+    .login_mini {
+      width: 70%; } }
+
+.logo {
+  margin-bottom: 20px;
+  margin-top: 5%;
+  max-width: 15%;
+  max-height: 15%; }
+  @media screen and (max-width: 480px) and (orientation: portrait) {
+    .logo {
+      max-width: 45%;
+      max-height: 45%;
+      margin-top: 15%; } }
+  @media screen and (max-width: 1000px) and (orientation: landscape) {
+    .logo {
+      max-width: 20%;
+      max-height: 20%;
+      margin-top: 1%; } }
+
+.loginInputs {
+  margin-bottom: 15px; }
+
+#myAlertContainer {
+  position: fixed;
+  z-index: 15;
+  width: 100%;
+  top: 0px;
+  height: 100%; }
+
+#myAlertMessage {
+  margin-top: 40px;
+  opacity: 1;
+  width: 100%;
+  font-size: x-large;
+  text-align: center; }
+
+#myAlertConfirm {
+  width: 100px;
+  text-align: center;
+  margin-top: 15px; }
+
+#myAlertBackground {
+  position: absolute;
+  width: 100%;
+  background-color: gray;
+  opacity: 0.7;
+  top: 50%;
+  height: 200px;
+  margin-top: -100px; }
+
+#myAlert {
+  position: absolute;
+  z-index: 15;
+  width: 100%;
+  color: red;
+  top: 50%;
+  height: 200px;
+  margin-top: -100px; }

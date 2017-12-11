@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>CleanThisMess - Main Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="CSS/main.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS/reset.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS/bootstrap.css" rel="stylesheet" type="text/css"/>
+
+        <script src="JS/md5.js" type="text/javascript"></script>
+        <script src="JS/jquery-3.1.1.js" type="text/javascript"></script>
+        <script src="JS/main.js" type="text/javascript"></script>
+        <script src="JS/functionality.js" type="text/javascript"></script>
+        <script src="JS/sessionControl.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="menuTrigger" class='triggerUnclicked'>M<br>E<br>N<br>U
+        </div>
+        <div id="menu" class='menuHide'>
+            <div id='menuPosList' class='menuPos'>RECORDS</div>
+            <div id='menuPosListHistory' class='menuPos'>HISTORY</div>
+            <div id='menuPosGenerateReport' class='menuPos'>SEND REPORT</div>
+            <div id='logout' class='menuPos'>LOGOUT</div>
+        </div>
+        <div id='tableDiv' class='hidden'>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <td class="col1">Date</td>
+                            <td class="col2">Shift</td>
+                            <td class="col3">Department</td>
+                            <td class="col4">Operator</td>
+                            <td class="col5">Product</td>
+                            <td class="col6">Reason</td>
+                            <td class="col7">Corrective action</td>
+                            <td class="col8">Quantity</td>
+                            <td class="col9">Machine</td>
+                        </tr>
+                    </thead>
+                    <tbody id="recordTabContent">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id='historyTableDiv' class='hidden'>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td class="col1">Date</td>
+                                <td class="col2">Shift</td>
+                                <td class="col3">Department</td>
+                                <td class="col4">Operator</td>
+                                <td class="col5">Product</td>
+                                <td class="col6">Reason</td>
+                                <td class="col7">Corrective action</td>
+                                <td class="col8">Quantity</td>
+                                <td class="col9">Machine</td>
+                            </tr>
+                        </thead>
+                        <tbody id="historyRecordTabContent">
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+        <div id='cancelAdd'>CANCEL</div>
+        <div class="qty">
+            <input type="button" class='qtyBtt' id="one" value="1">
+            <input type="button" class='qtyBtt' id="two" value="2">
+            <input type="button" class='qtyBtt' id="three" value="3">
+            <input type="button" class='qtyBtt' id="four" value="4">
+            <input type="button" class='qtyBtt' id="fife" value="5">
+            <input type="button" class='qtyBtt' id="six" value="6">
+            <input type="button" class='qtyBtt' id="seven" value="7">
+            <input type="button" class='qtyBtt' id="eight" value="8">
+            <input type="button" class='qtyBtt' id="nine" value="9">
+        </div>
+        <div class="buttonsTable">
+            <input type="button" id="ip4" class="caseType ip" value="iPhone 4">
+            <input type="button" id="ip4t" class="caseType ip" value="iPhone 4 TOUGH">
+            <input type="button" id="ip5" class="caseType ip" value="iPhone 5">
+            <input type="button" id="ip5t" class="caseType ip" value="iPhone 5 TOUGH">
+            <input type="button" id="ip5c" class="caseType ip" value="iPhone 5C">
+            <input type="button" id="ip6" class="caseType ip" value="iPhone 6">
+            <input type="button" id="ip6t" class="caseType ip" value="iPhone 6 TOUGH">
+            <input type="button" id="ip6pt" class="caseType ip" value="iPhone 6+ TOUGH">
+            <input type="button" id="ip7" class="caseType ip" value="iPhone 7">
+            <input type="button" id="ip7pt" class="caseType ip" value="iPhone 7+ TOUGH">
+            <input type="button" id="ip8" class="caseType ip disabled" value="iPhone 8">
+            <input type="button" id="gs3" class="caseType gs" value="Galaxy S3">
+            <input type="button" id="gs4" class="caseType gs" value="Galaxy S4">
+            <input type="button" id="gs5" class="caseType gs" value="Galaxy S5">
+            <input type="button" id="gs6t" class="caseType gs" value="Galaxy S6 TOUGH">
+            <input type="button" id="gs7" class="caseType gs" value="Galaxy S7">
+            <input type="button" id="gs8" class="caseType gs disabled" value="Galaxy S8">
+            <input type="button" id="ipadMini" class="caseTypeOne iPad" value="iPad Mini">
+            <input type="button" id="ipad" class="caseTypeOne iPad" value="iPad">
+            <input type="button" id="ipadMiniSmart" class="caseTypeOne iPadSmart" value="iPad Mini Smart">
+            <input type="button" id="ipadAirSmart" class="caseTypeOne iPadSmart" value="iPad Air Smart">
+            <input type="button" id="ipadSmart" class="caseTypeOne iPadSmart" value="iPad Smart">
+            <input type="button" id="ip5cclear" class="caseTypeOne iPadSmart" value="iPhone 5C clearcase">
+        </div>
+        <div id="glossOrMatt" class="hidden">
+            <input type="button" id="gloss" class="finishType" value="GLOSS">
+            <input type="button" id="matt" class="finishType" value="MATT">
+        </div>
+        <div id="defectSelect" class="hidden">
+            <input type="button" id="spot" class="defectType" value="SPOTS">
+            <input type="button" id="band" class="defectType" value="BANDING">
+            <input type="button" id="alig" class="defectType" value="ALIGNMENT">
+            <input type="button" id="brok" class="defectType" value="PRODUCTION FAILURE">
+            <input type="button" id="whit" class="defectType" value="WHITE EDGES">
+            <input type="button" id="supp" class="defectType" value="SUPPLIER ISSUE">
+            <input type="button" id="canc" class="defectType" value="CANCELLED">
+            <input type="button" id="creat" class="defectType" value="CREATION ISSUE">
+            <input type="button" id="colo" class="defectType" value="COLOURMETRIC">
+            <input type="button" id="melt" class="defectType" value="MELTED DURING COOKING">
+        </div>
+        <div id='myConfirmContainer' class="hidden">
+            <div id='myConfirmBackground'>
+            </div>
+            <div id='myConfirm'>
+                <label id='myConfirmMessage'>ExampleMesssage</label>
+                <button id='myConfirmConfirm' class='btn btn-default'>OK</button>
+                <button id='myConfirmAbort' class='btn btn-default'>Cancel</button>                  
+            </div>
+        </div>
+        <div id='myAlertContainer' class='hidden'>
+                <div id='myAlertBackground'>
+                </div>
+                <div id='myAlert'>
+                    <label id='myAlertMessage'>ExampleMesssage</label>
+                    <button id='myAlertConfirm' class='btn btn-default center-block'>OK</button>                
+                </div>
+        </div>
+    </body>
+</html>
