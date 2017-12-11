@@ -1,0 +1,277 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Czas generowania: 11 Gru 2017, 22:55
+-- Wersja serwera: 10.1.22-MariaDB-cll-lve
+-- Wersja PHP: 5.6.30
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Baza danych: `marek050_waste`
+--
+
+DELIMITER $$
+--
+-- Procedury
+--
+$$
+
+$$
+
+--
+-- Funkcje
+--
+$$
+
+$$
+
+$$
+
+$$
+
+$$
+
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `user_session`
+--
+
+CREATE TABLE `user_session` (
+  `session_id` int(11) NOT NULL,
+  `session_user_id` int(11) DEFAULT NULL,
+  `session_token` varchar(50) DEFAULT NULL,
+  `session_valid` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `user_session`
+--
+
+INSERT INTO `user_session` (`session_id`, `session_user_id`, `session_token`, `session_valid`) VALUES
+(13, 1, '702b51009b587c77feebe6fb9f7bf4f9', 1513003039000),
+(14, 1, '36bb2015871252357b8a49066e17ac98', 1513012262000),
+(15, 1, 'c7b4e680fff5b7bd8e5c92ead422773f', 1513012323000),
+(16, 1, '7211558d478698607fc4700724285937', 1513018776000),
+(17, 1, '8bcf8f68e43488170e5e10e552437da0', 1513027707258),
+(18, 1, 'b3807114ae40348271fc56ccc45b37b3', 1513027711749),
+(19, 1, 'e67d178461b1c2064e459a6d9c4b7095', 1513028580000),
+(20, 1, 'c69d76636451f0ac057ee5a0953b768a', 1513029678000);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `user_tab`
+--
+
+CREATE TABLE `user_tab` (
+  `user_id` int(11) NOT NULL,
+  `user_fname` varchar(45) DEFAULT NULL,
+  `user_lname` varchar(45) DEFAULT NULL,
+  `user_login` varchar(45) DEFAULT NULL,
+  `user_pass` varchar(45) DEFAULT NULL,
+  `user_type` varchar(45) DEFAULT NULL,
+  `user_pass_expiration` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `user_tab`
+--
+
+INSERT INTO `user_tab` (`user_id`, `user_fname`, `user_lname`, `user_login`, `user_pass`, `user_type`, `user_pass_expiration`) VALUES
+(1, '3D', 'Sublimation', 'uk3d', 'cab1b1f166e205b49cd7efaa4444816c', '1', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `waste`
+--
+
+CREATE TABLE `waste` (
+  `waste_id` int(11) NOT NULL,
+  `waste_date` datetime DEFAULT NULL,
+  `waste_department` varchar(45) DEFAULT NULL,
+  `waste_shift` varchar(45) DEFAULT NULL,
+  `waste_operator` varchar(45) DEFAULT NULL,
+  `waste_product` varchar(45) DEFAULT NULL,
+  `waste_defect` varchar(45) DEFAULT NULL,
+  `waste_corrective` varchar(45) DEFAULT NULL,
+  `waste_quantity` int(11) DEFAULT NULL,
+  `waste_machine` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `waste_history`
+--
+
+CREATE TABLE `waste_history` (
+  `waste_history_id` int(11) NOT NULL,
+  `waste_history_date` datetime DEFAULT NULL,
+  `waste_history_department` varchar(45) DEFAULT NULL,
+  `waste_history_shift` varchar(45) DEFAULT NULL,
+  `waste_history_operator` varchar(45) DEFAULT NULL,
+  `waste_history_product` varchar(45) DEFAULT NULL,
+  `waste_history_defect` varchar(45) DEFAULT NULL,
+  `waste_history_corrective` varchar(45) DEFAULT NULL,
+  `waste_history_quantity` int(11) DEFAULT NULL,
+  `waste_history_machine` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `waste_history`
+--
+
+INSERT INTO `waste_history` (`waste_history_id`, `waste_history_date`, `waste_history_department`, `waste_history_shift`, `waste_history_operator`, `waste_history_product`, `waste_history_defect`, `waste_history_corrective`, `waste_history_quantity`, `waste_history_machine`) VALUES
+(607, '2017-12-07 00:00:00', '2D', 'AM', 'PK', 'iPad Air Smartcover ', 'banding', 'reprint', 3, 'Mimaki 2'),
+(608, '2017-12-07 00:00:00', '2D', 'AM', 'PK', 'iPad Smartover ', 'banding', 'reprint', 1, 'Mimaki 2'),
+(609, '2017-12-07 00:00:00', '2D', 'AM', 'PK', 'iPad Smartover ', 'supplier issue', 'NA', 1, 'Mimaki 2'),
+(610, '2017-12-07 00:00:00', '2D', 'AM', 'PK', 'iPad Smartover ', 'banding', 'reprint', 1, 'Mimaki 2'),
+(611, '2017-12-07 00:00:00', '2D', 'AM', 'PK', 'iPad Air Smartcover ', 'banding', 'reprint', 1, 'Mimaki 2'),
+(612, '2017-12-07 00:00:00', '2D', 'AM', 'PK', 'iPad Air Smartcover ', 'banding', 'reprint', 3, 'Mimaki 2'),
+(613, '2017-12-08 00:00:00', '3D', 'AM', 'PK', 'Galaxy S7 GLOSS', 'broken', 'reprint', 1, 'TIA 3'),
+(614, '2017-12-08 00:00:00', '2D', 'AM', 'PK', 'iPad Smartover ', 'banding', 'reprint', 1, 'Mimaki 2'),
+(615, '2017-12-08 00:00:00', '2D', 'PM', 'MP', 'iPad Smartover ', 'supplier issue', 'NA', 1, 'Mimaki 2'),
+(616, '2017-12-07 00:00:00', '2D', 'AM', 'PK', 'iPad Air Smartcover ', 'banding', 'reprint', 1, 'Mimaki 2'),
+(617, '2017-12-07 00:00:00', '2D', 'AM', 'PK', 'iPad Smartover ', 'banding', 'reprint', 1, 'Mimaki 2'),
+(618, '2017-12-07 00:00:00', '2D', 'AM', 'PK', 'iPad Smartover ', 'supplier issue', 'NA', 1, 'Mimaki 2'),
+(619, '2017-12-08 00:00:00', '3D', 'AM', 'PK', 'iPad ', 'cancelled', 'NA', 1, 'TIA 2'),
+(620, '2017-12-07 00:00:00', '2D', 'AM', 'PK', 'iPad Air Smartcover ', 'banding', 'reprint', 1, 'Mimaki 2'),
+(621, '2017-12-07 00:00:00', '3D', 'AM', 'PK', 'iPhone 5 GLOSS', 'supplier issue', 'NA', 1, 'Indexer'),
+(622, '2017-12-07 00:00:00', '2D', 'AM', 'PK', 'iPad Air Smartcover ', 'banding', 'reprint', 1, 'Mimaki 2'),
+(623, '2017-12-08 00:00:00', '3D', 'PM', 'MP', 'iPhone 6+ Tough MATT', 'white edges', 'reprint', 1, 'TIA 1'),
+(624, '2017-12-10 00:00:00', '2D', 'AM', 'PK', 'iPad Air Smartcover ', 'colourmetric', 'reprint', 1, 'Mimaki 2'),
+(625, '2017-12-10 00:00:00', '2D', 'AM', 'PK', 'iPad Mini Smartcover ', 'colourmetric', 'reprint', 1, 'Mimaki 1'),
+(626, '2017-12-10 00:00:00', '2D', 'AM', 'PK', 'iPad Smartover ', 'colourmetric', 'reprint', 1, 'Mimaki 2'),
+(627, '2017-12-10 00:00:00', '3D', 'AM', 'PK', 'iPhone 5c GLOSS', 'spots', 'reprint', 1, 'Indexer'),
+(628, '2017-12-10 00:00:00', '2D', 'AM', 'PK', 'iPad Smartover ', 'cancelled', 'NA', 1, 'Mimaki 2'),
+(629, '2017-12-10 00:00:00', '2D', 'AM', 'PK', 'iPad Mini Smartcover ', 'colourmetric', 'reprint', 1, 'Mimaki 1'),
+(630, '2017-12-10 00:00:00', '2D', 'AM', 'PK', 'iPad Smartover ', 'banding', 'reprint', 1, 'Mimaki 2'),
+(631, '2017-12-10 00:00:00', '3D', 'AM', 'PK', 'iPhone 5 Tough GLOSS', 'colourmetric', 'reprint', 1, 'Indexer'),
+(632, '2017-12-10 00:00:00', '3D', 'AM', 'PK', 'iPhone 6 Tough MATT', 'production failure', 'reprint', 1, 'Indexer'),
+(633, '2017-12-10 00:00:00', '3D', 'AM', 'PK', 'Galaxy S5 GLOSS', 'creation issue', 'cancelled', 1, 'TIA 3'),
+(634, '2017-12-10 00:00:00', '3D', 'AM', 'PK', 'iPhone 6 Tough MATT', 'creation issue', 'cancelled', 1, 'Indexer'),
+(635, '2017-12-10 00:00:00', '3D', 'AM', 'PK', 'Galaxy S5 GLOSS', 'spots', 'reprint', 1, 'TIA 3'),
+(636, '2017-12-10 00:00:00', '3D', 'AM', 'PK', 'Galaxy S5 GLOSS', 'alignment', 'adjusted by operator', 1, 'TIA 3'),
+(637, '2017-12-10 00:00:00', '3D', 'AM', 'PK', 'iPhone 6 Tough MATT', 'creation issue', 'cancelled', 1, 'Indexer'),
+(638, '2017-12-10 00:00:00', '3D', 'AM', 'PK', 'iPhone 7 GLOSS', 'creation issue', 'cancelled', 1, 'TIA 2'),
+(639, '2017-12-10 00:00:00', '3D', 'AM', 'PK', 'iPhone 7 GLOSS', 'production failure', 'reprint', 1, 'TIA 2'),
+(640, '2017-12-10 00:00:00', '3D', 'PM', 'MP', 'iPhone 7+ Tough MATT', 'cancelled', 'NA', 1, 'TIA 1'),
+(641, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'Galaxy S5 GLOSS', 'creation issue', 'cancelled', 1, 'TIA 3'),
+(642, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 6+ Tough GLOSS', 'spots', 'reprint', 1, 'TIA 1'),
+(643, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 4 Tough GLOSS', 'alignment', 'adjusted by operator', 1, 'TIA 2'),
+(644, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 4 Tough GLOSS', 'alignment', 'adjusted by operator', 1, 'TIA 2'),
+(645, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 6+ Tough MATT', 'spots', 'reprint', 1, 'TIA 1'),
+(646, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 6 GLOSS', 'production failure', 'reprint', 1, 'Indexer'),
+(647, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'Galaxy S7 GLOSS', 'production failure', 'reprint', 1, 'TIA 3'),
+(648, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 6 GLOSS', 'production failure', 'reprint', 1, 'Indexer'),
+(649, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 4 Tough GLOSS', 'creation issue', 'cancelled', 1, 'TIA 2'),
+(650, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 5 GLOSS', 'alignment', 'adjusted by operator', 1, 'Indexer'),
+(651, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 7+ Tough GLOSS', 'alignment', 'adjusted by operator', 1, 'TIA 1'),
+(652, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'Galaxy S3 MATT', 'spots', 'reprint', 1, 'TIA 3'),
+(653, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 6+ Tough MATT', 'production failure', 'reprint', 1, 'TIA 1'),
+(654, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 7 MATT', 'production failure', 'reprint', 1, 'TIA 2'),
+(655, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 7 GLOSS', 'production failure', 'reprint', 1, 'TIA 2'),
+(656, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'Galaxy S5 GLOSS', 'production failure', 'reprint', 1, 'TIA 3'),
+(657, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 6+ Tough MATT', 'production failure', 'reprint', 1, 'TIA 1'),
+(658, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 6+ Tough MATT', 'production failure', 'reprint', 1, 'TIA 1'),
+(659, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 5 GLOSS', 'colourmetric', 'reprint', 1, 'Indexer'),
+(660, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 6 Tough MATT', 'colourmetric', 'reprint', 1, 'Indexer'),
+(661, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 5 GLOSS', 'production failure', 'reprint', 1, 'Indexer'),
+(662, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 5 Tough GLOSS', 'production failure', 'reprint', 1, 'Indexer'),
+(663, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 7 GLOSS', 'spots', 'reprint', 1, 'TIA 2'),
+(664, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 5 MATT', 'production failure', 'reprint', 1, 'Indexer'),
+(665, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 5c GLOSS', 'alignment', 'adjusted by operator', 1, 'Indexer'),
+(666, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'Galaxy S4 GLOSS', 'cancelled', 'NA', 1, 'TIA 3'),
+(667, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 6 MATT', 'production failure', 'reprint', 1, 'Indexer'),
+(668, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 6 Tough MATT', 'production failure', 'reprint', 1, 'Indexer'),
+(669, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 4 GLOSS', 'cancelled', 'NA', 1, 'Indexer'),
+(670, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 7 GLOSS', 'production failure', 'reprint', 1, 'TIA 2'),
+(671, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 5 Tough GLOSS', 'spots', 'reprint', 1, 'Indexer'),
+(672, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 4 GLOSS', 'creation issue', 'cancelled', 1, 'Indexer'),
+(673, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 7 GLOSS', 'production failure', 'reprint', 1, 'TIA 2'),
+(674, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 6 GLOSS', 'production failure', 'reprint', 1, 'Indexer'),
+(675, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 6+ Tough GLOSS', 'production failure', 'reprint', 1, 'TIA 1'),
+(676, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 6 GLOSS', 'production failure', 'reprint', 1, 'Indexer'),
+(677, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 7 GLOSS', 'alignment', 'adjusted by operator', 1, 'TIA 2'),
+(678, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'Galaxy S5 MATT', 'alignment', 'adjusted by operator', 1, 'TIA 3'),
+(679, '2017-12-11 00:00:00', '3D', 'AM', 'PK', 'iPhone 6 GLOSS', 'alignment', 'adjusted by operator', 1, 'Indexer'),
+(680, '2017-12-11 00:00:00', '3D', 'PM', 'MP', 'iPhone 6 Tough MATT', 'production failure', 'reprint', 1, 'Indexer'),
+(681, '2017-12-11 00:00:00', '3D', 'PM', 'MP', 'iPhone 5 GLOSS', 'production failure', 'reprint', 1, 'Indexer'),
+(682, '2017-12-11 00:00:00', '3D', 'PM', 'MP', 'Galaxy S6 Tough GLOSS', 'production failure', 'reprint', 1, 'TIA 1');
+
+--
+-- Indeksy dla zrzutów tabel
+--
+
+--
+-- Indexes for table `user_session`
+--
+ALTER TABLE `user_session`
+  ADD PRIMARY KEY (`session_id`),
+  ADD UNIQUE KEY `session_id_UNIQUE` (`session_id`);
+
+--
+-- Indexes for table `user_tab`
+--
+ALTER TABLE `user_tab`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `user_id_UNIQUE` (`user_id`);
+
+--
+-- Indexes for table `waste`
+--
+ALTER TABLE `waste`
+  ADD PRIMARY KEY (`waste_id`),
+  ADD UNIQUE KEY `waste_id_UNIQUE` (`waste_id`);
+
+--
+-- Indexes for table `waste_history`
+--
+ALTER TABLE `waste_history`
+  ADD PRIMARY KEY (`waste_history_id`),
+  ADD UNIQUE KEY `waste_history_id_UNIQUE` (`waste_history_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT dla tabeli `user_session`
+--
+ALTER TABLE `user_session`
+  MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+--
+-- AUTO_INCREMENT dla tabeli `user_tab`
+--
+ALTER TABLE `user_tab`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT dla tabeli `waste`
+--
+ALTER TABLE `waste`
+  MODIFY `waste_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+--
+-- AUTO_INCREMENT dla tabeli `waste_history`
+--
+ALTER TABLE `waste_history`
+  MODIFY `waste_history_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=683;COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

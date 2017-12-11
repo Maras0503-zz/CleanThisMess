@@ -1,0 +1,94 @@
+CREATE DEFINER=`marek050_storage`@`%` PROCEDURE `getRecords`()
+BEGIN
+	select *, sum(waste_quantity) as sumary from waste group by waste_product, waste_date, waste_defect, waste_operator, waste_shift order by waste_date desc, waste_product desc;
+END
+
+CREATE DEFINER=`marek050_storage`@`%` PROCEDURE `getRecordsHistory`()
+BEGIN
+	select *, sum(waste_history_quantity) as sumary from waste_history group by waste_history_product, waste_history_date, waste_history_defect, waste_history_operator, waste_history_shift order by waste_history_date desc, waste_history_product desc;
+END
+
+CREATE DEFINER=`marek050_storage`@`%` FUNCTION `addRecord`(department VARCHAR(45), shift VARCHAR(45), operator VARCHAR(45), product VARCHAR(45), defect VARCHAR(45), corrective VARCHAR(45), quantity INT ,machine VARCHAR(45)) RETURNS int(11)
+BEGIN
+	declare tm bigint;
+    declare mc int;
+    declare yr int;
+    declare dy int;
+    declare addDate varchar(45);
+    select now() into tm;
+    set mc = month(tm);
+    set yr = year(tm);
+    set dy = day(tm);
+    set addDate = concat(yr,'-',mc,'-',dy);
+	insert into waste(waste_date, waste_department, waste_shift, waste_operator, waste_product, waste_defect, waste_corrective, waste_quantity, waste_machine)
+    values (addDate, department, shift, operator, product, defect, corrective, quantity, machine);
+RETURN 1;
+END
+
+CREATE DEFINER=`marek050_storage`@`%` FUNCTION `isTokenValid`(userId int, token varchar(50), valid bigint, clickCheck INT) RETURNS int(11)
+BEGIN
+	declare ans int;
+    declare tm bigint;
+    set ans = 0;
+    select unix_timestamp()*1000 into tm;
+    set tm = tm + 3600000;
+	if exists(select * from user_session where session_user_id=UserId and session_token=token and session_valid>valid)
+    then
+		if(userId>0) then
+			set ans = 1;
+        end if;
+        if (clickCheck = 1) then
+			update user_session set session_valid = tm where session_user_id = userId and session_token = token;
+        end if;
+    end if;
+RETURN ans;
+END
+
+CREATE DEFINER=`marek050_storage`@`%` FUNCTION `checkPassword`(login varchar(50), passMD5 varchar(50)) RETURNS varchar(20) CHARSET utf8
+BEGIN
+	declare ans varchar(20);
+    declare userId int;
+    declare userType int;
+	if EXISTS(select user_id from user_tab where user_login = login and user_pass = passMD5)
+	then
+	  select user_id from user_tab where user_login = login and user_pass = passMD5 into userId;
+      select user_type from user_tab where user_login = login and user_pass = passMD5 into userType;
+	  set ans = userId;
+	else
+	  set ans = null;
+	end if;
+	return ans;
+end
+
+CREATE DEFINER=`marek050_storage`@`%` FUNCTION `saveNewToken`(userId int, token varchar(50), valid bigint) RETURNS tinyint(1)
+BEGIN
+	delete from user_session where session_valid < valid-28800000;
+	insert into user_session (session_user_id, session_token, session_valid) values (userId, token, valid);
+RETURN 1;
+END
+
+CREATE DEFINER=`marek050_storage`@`%` FUNCTION `storeAndDeleteRecords`() RETURNS int(11)
+BEGIN
+	declare id INT;
+    declare isExist int;
+	declare i int;
+    set i = 0;
+    set isExist = true;
+    
+	label1: WHILE isExist=true DO
+		if EXISTS(select waste_id from waste limit 1 offset i)then
+			select waste_id from waste limit 1 offset i into id;
+            
+			INSERT INTO waste_history
+				(waste_history_date, waste_history_department, waste_history_shift, waste_history_operator, waste_history_product, waste_history_defect, waste_history_corrective, waste_history_quantity, waste_history_machine)
+			SELECT waste_date, waste_department, waste_shift, waste_operator, waste_product, waste_defect, waste_corrective, waste_quantity, waste_machine 
+			FROM waste WHERE waste_id=id;
+            set isExist = true;
+            set i=i+1;
+		else
+			set isExist=false;
+		end if;
+	END WHILE label1;
+    DELETE FROM waste WHERE waste_id<>0;
+RETURN id;
+END
