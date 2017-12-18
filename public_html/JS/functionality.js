@@ -44,6 +44,7 @@ pageFunctions.functionality = (function(){
                 $('#menu').addClass('menuHide');
                 menuVisible = 0;
                 $('#tableDiv').removeClass('hidden');
+                $('#tablesHide').removeClass('hidden');
                 tableDivVis = 1;
             } else {
                 $('#menuTrigger').addClass('triggerUnclicked');
@@ -68,6 +69,7 @@ pageFunctions.functionality = (function(){
                 $('#menu').addClass('menuHide');
                 menuVisible = 0;
                 $('#historyTableDiv').removeClass('hidden');
+                $('#tablesHide').removeClass('hidden');
                 historyTableDivVis = 1;
             } else {
                 $('#menuTrigger').addClass('triggerUnclicked');
@@ -78,6 +80,13 @@ pageFunctions.functionality = (function(){
                 $('#historyTableDiv').addClass('hidden');
                 historyTableDivVis = 0;
             }
+        });
+        $('#tablesHide').on('click', function(){
+            $('#tablesHide').addClass('hidden');
+            $('#historyTableDiv').addClass('hidden');
+            $('#tableDiv').addClass('hidden');
+            tableDivVis = 0;
+            historyTableDivVis = 0;
         });
         $('#menuTrigger').on('click', function(){
             if(menuVisible == 1){
@@ -301,6 +310,20 @@ pageFunctions.functionality = (function(){
             $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+operator+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
             $('#myConfirmContainer').removeClass('hidden');
         });
+        $('#stre').on('click', function(){
+            defect="streched";
+            correct = "reprint";
+            action='record';
+            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+operator+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
+            $('#myConfirmContainer').removeClass('hidden');
+        });
+        $('#syst').on('click', function(){
+            defect="system issue";
+            correct = "reprint";
+            action='record';
+            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+operator+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
+            $('#myConfirmContainer').removeClass('hidden');
+        });
 
         $('.qtyBtt').on('click', function(){
             $('.qtyBtt').removeClass('active');
@@ -363,7 +386,6 @@ pageFunctions.functionality = (function(){
             }
             $('.qtyBtt').removeClass('active');
             $('#one').addClass('active');
-            qty = 1;
         });
         $('#menuPosGenerateReport').on('click', function(){
             action='report';
@@ -386,7 +408,8 @@ pageFunctions.functionality = (function(){
             sendReport();
             $('#myConfirmContainer').addClass('hidden');
         } else if(action == 'record'){
-            addRecordToDB();            
+            addRecordToDB();
+            qty = 1;            
             $('#myConfirmContainer').addClass('hidden');
         }
     };
