@@ -8,13 +8,16 @@ pageFunctions.functionality = (function(){
         addDate = dateToFormat(date);
         if(addDate>6 && addDate<=15){
             shift = 'AM';
-            operator = "PK";
         } else if (addDate>15 && addDate<21){
             shift = 'PM';
-            operator = "MP";
         } else {
             shift = 'NS';
-            operator = "IC";
+        }
+        if(window.localStorage.getItem('operator') != '' && window.localStorage.getItem('operator') != null){
+            operator = window.localStorage.getItem('operator');
+            $('#loged').html(operator);
+        } else {
+            $('#selectOperator').removeClass('hidden');
         }
     });
     var menuVisible = 0;
@@ -31,6 +34,32 @@ pageFunctions.functionality = (function(){
     var correct = "";
     var qty = 1;
     var listeners = (function(){
+        $('#changeOperator').on('click', function(){
+            $('#selectOperator').removeClass('hidden');
+        });
+        $('#loged').on('click', function(){
+            $('#selectOperator').removeClass('hidden');
+        });
+        $('#PK').on('click', function(){
+            operator = window.localStorage.setItem('operator', 'PK');
+            $('#selectOperator').addClass('hidden');
+            $('#loged').html('PK');
+        });
+        $('#MP').on('click', function(){
+            operator = window.localStorage.setItem('operator', 'MP');
+            $('#selectOperator').addClass('hidden');
+            $('#loged').html('MP');
+        });
+        $('#SS').on('click', function(){
+            operator = window.localStorage.setItem('operator', 'SS');
+            $('#selectOperator').addClass('hidden');
+            $('#loged').html('SS');
+        });
+        $('#IC').on('click', function(){
+            operator = window.localStorage.setItem('operator', 'IC');
+            $('#selectOperator').addClass('hidden');
+            $('#loged').html('IC');
+        });
         $('#menuPosList').on('click', function(){
             if(tableDivVis == 0){
                 if(historyTableDivVis == 1){
@@ -244,84 +273,84 @@ pageFunctions.functionality = (function(){
             defect="spots";
             correct = "reprint";
             action='record';
-            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+operator+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
+            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+window.localStorage.getItem('operator')+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
             $('#myConfirmContainer').removeClass('hidden');
         });
         $('#band').on('click', function(){
             defect="banding";
             correct = "reprint";
             action='record';
-            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+operator+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
+            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+window.localStorage.getItem('operator')+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
             $('#myConfirmContainer').removeClass('hidden');
         });
         $('#alig').on('click', function(){
             defect="alignment";
             correct = "adjusted by operator";
             action='record';
-            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+operator+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
+            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+window.localStorage.getItem('operator')+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
             $('#myConfirmContainer').removeClass('hidden');
         });
         $('#brok').on('click', function(){
             defect="production failure";
             correct = "reprint";
             action='record';
-            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+operator+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
+            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+window.localStorage.getItem('operator')+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
             $('#myConfirmContainer').removeClass('hidden');
         });
         $('#whit').on('click', function(){
             defect="white edges";
             correct = "reprint";
             action='record';
-            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+operator+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
+            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+window.localStorage.getItem('operator')+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
             $('#myConfirmContainer').removeClass('hidden');
         });
         $('#supp').on('click', function(){
             defect="supplier issue";
             correct = "NA";
             action='record';
-            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+operator+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
+            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+window.localStorage.getItem('operator')+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
             $('#myConfirmContainer').removeClass('hidden');
         });
         $('#canc').on('click', function(){
             defect="cancelled";
             correct = "NA";
             action='record';
-            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+operator+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
+            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+window.localStorage.getItem('operator')+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
             $('#myConfirmContainer').removeClass('hidden');
         });
         $('#creat').on('click', function(){
             defect="creation issue";
             correct = "cancelled";
             action='record';
-            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+operator+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
+            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+window.localStorage.getItem('operator')+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
             $('#myConfirmContainer').removeClass('hidden');
         });
         $('#colo').on('click', function(){
             defect="colourmetric";
             correct = "reprint";
             action='record';
-            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+operator+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
+            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+window.localStorage.getItem('operator')+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
             $('#myConfirmContainer').removeClass('hidden');
         });
         $('#melt').on('click', function(){
             defect="melted during cooking";
             correct = "reprint";
             action='record';
-            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+operator+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
+            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+window.localStorage.getItem('operator')+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
             $('#myConfirmContainer').removeClass('hidden');
         });
         $('#stre').on('click', function(){
             defect="streched";
             correct = "reprint";
             action='record';
-            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+operator+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
+            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+window.localStorage.getItem('operator')+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
             $('#myConfirmContainer').removeClass('hidden');
         });
         $('#syst').on('click', function(){
             defect="system issue";
             correct = "reprint";
             action='record';
-            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+operator+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
+            $('#myConfirmMessage').html('Do you really want add record?<br>'+shift+' '+depart+' '+window.localStorage.getItem('operator')+' '+type+' -'+finish+'- '+defect+' Qty:'+qty+' '+machine);
             $('#myConfirmContainer').removeClass('hidden');
         });
 
@@ -376,13 +405,10 @@ pageFunctions.functionality = (function(){
             addDate = dateToFormat(date);
             if(addDate>6 && addDate<=15){
                 shift = 'AM';
-                operator = "PK";
             } else if (addDate>15 && addDate<21){
                 shift = 'PM';
-                operator = "MP";
             } else {
                 shift = 'NS';
-                operator = "IC";
             }
             $('.qtyBtt').removeClass('active');
             $('#one').addClass('active');
@@ -507,7 +533,7 @@ pageFunctions.functionality = (function(){
         param = {};
         param['department'] = depart;
         param['shift'] = shift;
-        param['operator'] = operator;
+        param['operator'] = window.localStorage.getItem('operator');
         param['product'] = type+' '+finish;
         param['defect'] = defect;
         param['corrective'] = correct;
