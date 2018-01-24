@@ -72,7 +72,7 @@
     width: 50%;
     @media (max-width: 768px){
         left: 5%;
-        width: 85%;
+        width: 81%;
         height: 60px;
     }
 }
@@ -116,13 +116,14 @@
     background-color: red;
     width: 40%;
     height: 30%;
+    overflow: scroll;
     left: 30%;
     top: 5%;
     @media (max-width: 768px){
         left: 10%;
-        top: 20%;
+        top: 10%;
         width: 80%;
-        height: 40%;
+        height: 80%;
     }
 }
 .defectType{
@@ -134,8 +135,7 @@
     font-weight: bold;
     @media (max-width: 768px){
         width: 100%;
-        border: 3px solid red;
-        height: 20%;
+        height: 15%;
     }
 }
 .defectType:active{
@@ -170,8 +170,12 @@
     height: 50%;
     left: 50%;
     top: 50%;
-    margin-top: 17%;
+    overflow: scroll;
+    margin-top: 8%;
     margin-left: 28%;
+    @media (max-width: 768px){
+        margin-top: 40%;
+    }
 }
 .operatorOpt{
     margin-left: 5%;
@@ -202,6 +206,7 @@
 #menuTrigger{
     position: fixed;
     display: none;
+    font-weight: bold;
     @media (max-width: 768px){
         text-align: center;
         cursor: pointer;
@@ -266,7 +271,7 @@
     left: 14%;
     min-height: 100%;
     @media (max-width: 768px){
-        width: 100%;
+        width: 95%;
         left: 0%;
     }
 }
@@ -278,7 +283,7 @@
     left: 14%;
     min-height: 100%;
     @media (max-width: 768px){
-        width: 100%;
+        width: 95%;
         left: 0%;
     }
 }
@@ -293,6 +298,10 @@
     top: 0px;
     width: 2%;
     height: 100%;
+    @media (max-width: 768px){
+        padding-top: 75%;
+        width: 5%;
+    }
 }
 #prodTable{
     background-color: rgb(240, 239, 239);
@@ -358,8 +367,7 @@
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     @media (max-width: 768px){
-        left: 55%;
-        margin-left: -14%;
+        left: 47%;
     }
 }
 .login_mini{

@@ -61,7 +61,7 @@
   @media (max-width: 768px) {
     .buttonsTable {
       left: 5%;
-      width: 85%;
+      width: 81%;
       height: 60px; } }
 
 #glossOrMatt {
@@ -102,6 +102,7 @@
   background-color: red;
   width: 40%;
   height: 30%;
+  overflow: scroll;
   left: 30%;
   top: 5%; }
   @media (max-width: 768px) {
@@ -121,7 +122,6 @@
   @media (max-width: 768px) {
     .defectType {
       width: 100%;
-      border: 3px solid red;
       height: 20%; } }
 
 .defectType:active {
@@ -156,8 +156,12 @@
   height: 50%;
   left: 50%;
   top: 50%;
-  margin-top: 17%;
+  overflow: scroll;
+  margin-top: 8%;
   margin-left: 28%; }
+  @media (max-width: 768px) {
+    #operatorOptions {
+      margin-top: 40%; } }
 
 .operatorOpt {
   margin-left: 5%;
@@ -187,7 +191,8 @@
 
 #menuTrigger {
   position: fixed;
-  display: none; }
+  display: none;
+  font-weight: bold; }
   @media (max-width: 768px) {
     #menuTrigger {
       text-align: center;
@@ -250,7 +255,7 @@
   min-height: 100%; }
   @media (max-width: 768px) {
     #tableDiv {
-      width: 100%;
+      width: 95%;
       left: 0%; } }
 
 #historyTableDiv {
@@ -262,7 +267,7 @@
   min-height: 100%; }
   @media (max-width: 768px) {
     #historyTableDiv {
-      width: 100%;
+      width: 95%;
       left: 0%; } }
 
 #tablesHide {
@@ -276,6 +281,10 @@
   top: 0px;
   width: 2%;
   height: 100%; }
+  @media (max-width: 768px) {
+    #tablesHide {
+      padding-top: 75%;
+      width: 5%; } }
 
 #prodTable {
   background-color: #f0efef; }
@@ -342,8 +351,7 @@
   border-bottom-right-radius: 10px; }
   @media (max-width: 768px) {
     #cancelAdd {
-      left: 55%;
-      margin-left: -14%; } }
+      left: 47%; } }
 
 .login_mini {
   width: 30%; }
